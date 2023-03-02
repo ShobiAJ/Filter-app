@@ -1,0 +1,27 @@
+<hello name="{{ name }}"></hello>
+
+<select name="cars" id="cars" (change)="onCheck($event.target.value)">
+  <option *ngFor="let checkArray of filterData">
+    {{ checkArray.firstName }}
+  </option>
+</select>
+<table class="table" *ngIf="filterById">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Address</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let arr of filterById, let i=index ">
+      <td>{{ arr.id }}</td>
+      <td>{{ arr.firstName }}</td>
+      <td>{{ arr.lastName }}</td>
+      <td>{{ arr.address }}</td>
+      <td><button (click)="onDelete(i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
